@@ -12,8 +12,6 @@ export const authRouter = createTRPCRouter({
 
     const session = await ctx.db.auth({ headers });
 
-    console.log({ session });
-
     return session;
   }),
 
