@@ -37,7 +37,7 @@ const ProductFilters = () => {
   const [filters, setFilters] = useProductFilters();
 
   const onChange = (key: keyof typeof filters, value: unknown) => {
-    setFilters({ ...filters, [key]: [value] });
+    setFilters({ ...filters, [key]: value });
   };
 
   return (
