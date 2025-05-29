@@ -1,7 +1,8 @@
 import type { CollectionConfig } from "payload";
 
-import { isSuperAdmin } from "@/lib/access";
 import { Tenant } from "@/payload-types";
+
+import { isSuperAdmin } from "@/lib/access";
 
 export const Products: CollectionConfig = {
   slug: "products",
@@ -13,7 +14,7 @@ export const Products: CollectionConfig = {
 
       return Boolean(tenant?.stripeDetailsSubmitted);
     },
-    update: ({ req }) => isSuperAdmin(req.user),
+    // update: ({ req }) => isSuperAdmin(req.user),
     delete: ({ req }) => isSuperAdmin(req.user),
   },
   admin: {
@@ -24,7 +25,7 @@ export const Products: CollectionConfig = {
     { name: "name", type: "text", required: true },
     {
       name: "description",
-      type: "text",
+      type: "richText",
     },
     {
       name: "price",
@@ -59,11 +60,29 @@ export const Products: CollectionConfig = {
     },
     {
       name: "content",
-      // TODO: Change to RichText
-      type: "textarea",
+      type: "richText",
       admin: {
         description:
           "Protected content only visible to customers after purchase. Add product documentation, downloadable files, getting started guides, and bonus materials. Supports Markdown formatting",
+      },
+    },
+    {
+      name: "isPrivate",
+      label: "Private",
+      defaultValue: false,
+      type: "checkbox",
+      admin: {
+        description:
+          "If checked, this product will not be shown on the public storefront",
+      },
+    },
+    {
+      name: "isArchived",
+      label: "Archive",
+      defaultValue: false,
+      type: "checkbox",
+      admin: {
+        description: "If checked, this product will be archived",
       },
     },
   ],
