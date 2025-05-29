@@ -1,8 +1,8 @@
 // storage-adapter-import-placeholder
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { payloadCloudPlugin } from "@payloadcms/payload-cloud";
-import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { multiTenantPlugin } from "@payloadcms/plugin-multi-tenant";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import path from "path";
 import { buildConfig } from "payload";
 import sharp from "sharp";
@@ -12,14 +12,14 @@ import { Config } from "./payload-types";
 
 import { isSuperAdmin } from "./lib/access";
 
-import { Tags } from "./collections/Tags";
-import { Users } from "./collections/Users";
+import { Categories } from "./collections/Categories";
 import { Media } from "./collections/Media";
 import { Orders } from "./collections/Orders";
-import { Tenants } from "./collections/Tenants";
-import { Reviews } from "./collections/Reviews";
 import { Products } from "./collections/Products";
-import { Categories } from "./collections/Categories";
+import { Reviews } from "./collections/Reviews";
+import { Tags } from "./collections/Tags";
+import { Tenants } from "./collections/Tenants";
+import { Users } from "./collections/Users";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
