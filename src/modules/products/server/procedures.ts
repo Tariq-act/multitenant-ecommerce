@@ -30,7 +30,7 @@ export const productsRouter = createTRPCRouter({
       });
 
       if (product.isArchived) {
-        return new TRPCError({
+        throw new TRPCError({
           code: "NOT_FOUND",
           message: "Product not found",
         });
