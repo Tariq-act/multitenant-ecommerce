@@ -1,8 +1,11 @@
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 
 import { DEFAULT_LIMIT } from "@/constants";
-import { LibraryView } from "@/modules/library/ui/view/library-view";
 import { getQueryClient, trpc } from "@/trpc/server";
+
+import { LibraryView } from "@/modules/library/ui/view/library-view";
+
+export const dynamic = "force-dynamic";
 
 const Page = async () => {
   const queryClient = getQueryClient();
